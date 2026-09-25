@@ -50,5 +50,55 @@
     color: #cadcdf;
   }
 </style>
+  <h1>My First paragraph </h1>
+        <p> JavaScript can change the content of an html element:    </p>
+        <button type="button" onclick="myFunction()"    >Click Me!</button>
+        <p id="demo">This is a demonstration.</p>
+<script>
+
+  function myFunction() {
+                document.getElementById("demo").innerHTML = "Hello Kenneth !";
+            }// An object stores facts about me as key: value pairs.
+const me = {
+  name: "Oola Kenneth",
+  course: "Diploma in Information Technology",
+  university: "Uganda Christian University, Mukono Campus",
+  faculty: "Faculty of Engineering, Design and Technology",
+  interests: ["computer networking", "technical documentation", "software development"],
+  currentProject: "ReConnect, a Lost & Found portal for UCU",
+  tools: ["React", "Express.js", "MySQL / MariaDB", "React Native (in progress)"],
+  writesOn: ["LinkedIn", "Medium"]
+};
+
+// A function builds the page content from the object.
+function describeMe(person) {
+  const box = document.getElementById("about-me");
+
+  const intro = document.createElement("p");
+  intro.textContent =
+    `Hi, I'm ${person.name}, a ${person.course} student at ${person.university} ` +
+    `(${person.faculty}). I'm interested in ${person.interests.join(", ")}.`;
+
+  const project = document.createElement("p");
+  project.textContent = `Right now I'm building ${person.currentProject}.`;
+
+  const toolsTitle = document.createElement("p");
+  toolsTitle.textContent = "Tools I'm using:";
+
+  const list = document.createElement("ul");
+  person.tools.forEach(function (tool) {
+    const item = document.createElement("li");
+    item.textContent = tool;
+    list.appendChild(item);
+  });
+
+  const writing = document.createElement("p");
+  writing.textContent = `I share my work on ${person.writesOn.join(" and ")}.`;
+
+  box.append(intro, project, toolsTitle, list, writing);
+}
+
+describeMe(me);
+</script>
 </body>
 </html>
