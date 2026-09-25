@@ -1,18 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Oola Kenneth — An Education Journey</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Oola Kenneth — An Education Journey</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 20px;
+      background-color: #0ccb4f;
+      color: #111;
+    }
+
+    nav {
+      margin-bottom: 20px;
+    }
+
+    h1, h2 {
+      color: #1e14a3;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      background: #fff;
+    }
+
+    th, td {
+      border: 1px solid #333;
+      padding: 10px;
+      text-align: left;
+    }
+
+    button {
+      padding: 8px 16px;
+      margin-top: 10px;
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
-<nav> 
-     <a href="introduction.html">Home</a> |
-     <a href="education.html">education background </a> |  
-     <a href="project.html">project </a> |
-     <a href="gallery.html">gallery </a>
+  <nav>
+    <a href="introduction.html">Home</a> |
+    <a href="education.html">Education Background</a> |
+    <a href="project.html">Project</a> |
+    <a href="gallery.html">Gallery</a>
+  </nav>
 
-</nav>
   <h1>Oola Kenneth — An Education Journey</h1>
 
   <p>Every builder's story starts somewhere long before the first line of code. For Kenneth, that beginning was primary school — the years where foundational literacy, numeracy, and curiosity are first shaped. It's rarely dramatic at the time, but it's where the basic discipline of learning gets built: showing up, following through, and starting to notice what subjects pull your attention more than others.</p>
@@ -24,44 +60,99 @@
   <p>The clearest evidence of that shift from "learning" to "building" is ReConnect, his UCU Lost &amp; Found Portal — an Agile-run bootcamp project addressing a genuine campus need. It's the kind of project that marks a turning point in an education journey: no longer just completing assignments, but producing something real, with real users in mind.</p>
 
   <p>And the journey isn't finished. Kenneth is now extending his skills from web development into mobile, using React Native — treating his diploma not as a finish line, but as a foundation for a much longer career in software development.</p>
-<style>
-  body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    margin: 20px;
-    background-color: #0ccb4f;
-  }
-  h1 {
-    color: #1e14a3;
-  }
-</style>
-<table>
-  <tr>
-    <th>name</th>
-    <th>YOB</th>
-    <th>Nationality</th>
-  </tr>
-</table>
-  <tr>
-    <th>Education Level</th>
-    <th>Institution</th>
-    <th>Year</th>
-  </tr>
-  <tr>
-    <td>Primary School</td>
-    <td>Namugongo Model Primary School</td>
-    <td>2011 - 2017</td>
-  </tr>
-  <tr>
-    <td>Secondary School</td>
-    <td>Naalya Senior Secondary School</td>
-    <td>2018 - 2024</td>
-  </tr>
-  <tr>
-    <td>Diploma in Information Technology</td>
-    <td>Uganda Christian University, Mukono Campus</td>
-    <td>2026 - Present</td>
-  </tr>
-  <link rel="stylesheet" href="styles.css">
+
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>YOB</th>
+        <th>Nationality</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Oola Kenneth</td>
+        <td>2005</td>
+        <td>Ugandan</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Education Level</th>
+        <th>Institution</th>
+        <th>Year</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Primary School</td>
+        <td>Namugongo Model Primary School</td>
+        <td>2011 - 2017</td>
+      </tr>
+      <tr>
+        <td>Secondary School</td>
+        <td>Naalya Senior Secondary School</td>
+        <td>2018 - 2024</td>
+      </tr>
+      <tr>
+        <td>Diploma in Information Technology</td>
+        <td>Uganda Christian University, Mukono Campus</td>
+        <td>2026 - Present</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>Education Summary</h2>
+  <div id="education-summary"></div>
+
+  <p>JavaScript can change the content of an HTML element:</p>
+  <button type="button" onclick="myFunction()">Click Me!</button>
+  <p id="demo">This is a demonstration.</p>
+
+  <script>
+    const student = {
+      name: "Oola Kenneth",
+      yearOfBirth: 2005,
+      nationality: "Ugandan",
+      currentStudy: "Diploma in Information Technology",
+      education: [
+        { level: "Primary School", school: "Namugongo Model Primary School", years: "2011 - 2017" },
+        { level: "Secondary School", school: "Naalya Senior Secondary School", years: "2018 - 2024" },
+        { level: "Diploma in Information Technology", school: "Uganda Christian University, Mukono Campus", years: "2026 - Present" }
+      ]
+    };
+
+    function describeEducation(person) {
+      const box = document.getElementById("education-summary");
+      if (!box) return;
+
+      const intro = document.createElement("p");
+      intro.textContent =
+        `I'm ${person.name}, a ${person.nationality} born in ${person.yearOfBirth}. ` +
+        `I'm currently studying for a ${person.currentStudy}.`;
+
+      const list = document.createElement("ul");
+      person.education.forEach(function (step) {
+        const item = document.createElement("li");
+        item.textContent = `${step.years}: ${step.level} at ${step.school}`;
+        list.appendChild(item);
+      });
+
+      box.append(intro, list);
+    }
+
+    function myFunction() {
+      const demo = document.getElementById("demo");
+      if (!demo) return;
+
+      const latestStudy = student.education[student.education.length - 1];
+      demo.textContent = `Student Name: ${student.name}, YOB: ${student.yearOfBirth}, Nationality: ${student.nationality}, Education Level: ${student.currentStudy}, Institution: ${latestStudy.school}, Year: ${latestStudy.years}`;
+    }
+
+    describeEducation(student);
+  </script>
 </body>
 </html>
